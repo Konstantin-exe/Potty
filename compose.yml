@@ -1,0 +1,11 @@
+services:
+  db-mysql:
+    image: mysql:8.0.31
+    env_file: .docker/env/db-mysql.env
+    ports:
+      - '3310:3306'
+    volumes:
+      - db-mysql:/var/lib/mysql
+
+volumes:
+  db-mysql:
