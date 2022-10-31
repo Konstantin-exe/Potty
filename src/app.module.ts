@@ -6,12 +6,12 @@ import { Potty } from './potties/potty.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3310,
-      username: 'user',
-      password: 'secret',
-      database: 'potty',
+      type: process.env.DB_TYPE as any,
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT, 3310),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       entities: [Potty],
       synchronize: true,
     }),

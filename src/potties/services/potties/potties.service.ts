@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PottyDto } from 'src/potties/potty.dto';
+import { Potty } from 'src/potties/potty.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class PottiesService {
   constructor(
-    @InjectRepository(PottyDto) private pottiesRepository: Repository<PottyDto>,
+    @InjectRepository(Potty) private pottyRepository: Repository<Potty>,
   ) {}
 }
